@@ -1,0 +1,225 @@
+"""Sinh bộ dữ liệu test multi-hop đúng format QAExample (giống data/hotpot_mini.json).
+
+Mỗi câu hỏi cần lý luận 2 bước (multi-hop): nối thông tin từ context chunk 1 -> chunk 2.
+Chạy: python scripts/make_test_data.py  ->  ghi data/test_set.json
+"""
+from __future__ import annotations
+import json
+from pathlib import Path
+
+# (difficulty, question, gold_answer, (title1, text1), (title2, text2))
+ROWS = [
+    # --- Geography ---
+    ("easy", "What is the capital of the country where the Eiffel Tower is located?", "Paris",
+     ("Eiffel Tower", "The Eiffel Tower is a wrought-iron tower located in France."),
+     ("France", "The capital of France is Paris.")),
+    ("medium", "Which river flows through the capital of the country where the Colosseum stands?", "Tiber",
+     ("Colosseum", "The Colosseum is an ancient amphitheatre in Rome, the capital of Italy."),
+     ("Rome", "Rome is crossed by the Tiber river.")),
+    ("medium", "Which ocean borders the country whose capital is Canberra?", "Pacific Ocean",
+     ("Canberra", "Canberra is the capital city of Australia."),
+     ("Australia", "Australia is bordered to the east by the Pacific Ocean.")),
+    ("hard", "Which desert covers most of the country whose capital is Ulaanbaatar?", "Gobi Desert",
+     ("Ulaanbaatar", "Ulaanbaatar is the capital of Mongolia."),
+     ("Mongolia", "Much of southern Mongolia is covered by the Gobi Desert.")),
+    ("medium", "What is the longest river in the continent where the Sahara is located?", "Nile",
+     ("Sahara", "The Sahara is a desert located on the continent of Africa."),
+     ("Africa", "The Nile is the longest river in Africa.")),
+    ("easy", "What is the official currency of the country where Mount Fuji is located?", "Japanese yen",
+     ("Mount Fuji", "Mount Fuji is the highest mountain in Japan."),
+     ("Japan", "The official currency of Japan is the Japanese yen.")),
+    ("hard", "Which strait separates the continent containing Spain from the continent containing Morocco?", "Strait of Gibraltar",
+     ("Spain", "Spain is a country on the continent of Europe."),
+     ("Strait of Gibraltar", "The Strait of Gibraltar separates Europe from Africa, where Morocco lies.")),
+    ("medium", "Which lake is the source of the river that flows through the capital of Uganda?", "Lake Victoria",
+     ("Kampala", "Kampala is the capital of Uganda, near the shores of Lake Victoria."),
+     ("Nile", "The White Nile begins at Lake Victoria.")),
+    ("easy", "On which continent is the country whose capital is Nairobi?", "Africa",
+     ("Nairobi", "Nairobi is the capital of Kenya."),
+     ("Kenya", "Kenya is a country located in Africa.")),
+    ("hard", "Which mountain range forms the border of the country whose capital is Santiago?", "Andes",
+     ("Santiago", "Santiago is the capital of Chile."),
+     ("Chile", "Chile's eastern border runs along the Andes mountain range.")),
+
+    # --- Science & Inventors ---
+    ("easy", "In which country was the scientist who developed the theory of general relativity born?", "Germany",
+     ("General relativity", "General relativity was developed by Albert Einstein."),
+     ("Albert Einstein", "Albert Einstein was born in Ulm, Germany.")),
+    ("medium", "What prize did the scientist who discovered radium win twice?", "Nobel Prize",
+     ("Radium", "Radium was discovered by Marie Curie."),
+     ("Marie Curie", "Marie Curie won the Nobel Prize twice, in Physics and Chemistry.")),
+    ("medium", "What nationality was the inventor of the telephone that Bell Labs is named after?", "Scottish",
+     ("Bell Labs", "Bell Labs is named after Alexander Graham Bell."),
+     ("Alexander Graham Bell", "Alexander Graham Bell was a Scottish-born inventor.")),
+    ("hard", "Which university employed the physicist who formulated the uncertainty principle?", "University of Leipzig",
+     ("Uncertainty principle", "The uncertainty principle was formulated by Werner Heisenberg."),
+     ("Werner Heisenberg", "Heisenberg became a professor at the University of Leipzig in 1927.")),
+    ("easy", "What field did the person who proposed the theory of evolution by natural selection work in?", "biology",
+     ("Theory of evolution", "Evolution by natural selection was proposed by Charles Darwin."),
+     ("Charles Darwin", "Charles Darwin was a naturalist who worked in the field of biology.")),
+    ("medium", "What gas did the chemist who is called the father of modern chemistry help identify in combustion?", "oxygen",
+     ("Father of modern chemistry", "Antoine Lavoisier is called the father of modern chemistry."),
+     ("Antoine Lavoisier", "Lavoisier identified the role of oxygen in combustion.")),
+    ("hard", "Which programming concept is named after the mathematician who designed the first algorithm for a machine?", "Ada (language)",
+     ("First algorithm", "Ada Lovelace is credited with writing the first algorithm for a machine."),
+     ("Ada Lovelace", "The Ada programming language is named in her honour.")),
+    ("medium", "What disease did the scientist who created the first polio vaccine target?", "polio",
+     ("First polio vaccine", "The first polio vaccine was created by Jonas Salk."),
+     ("Jonas Salk", "Jonas Salk developed a vaccine to prevent polio.")),
+    ("easy", "What planet did the astronomer who discovered four large moons of Jupiter observe?", "Jupiter",
+     ("Galilean moons", "The four large moons of Jupiter were discovered by Galileo Galilei."),
+     ("Galileo Galilei", "Galileo observed the planet Jupiter through his telescope.")),
+    ("hard", "Which element did the chemist whose periodic table left gaps for undiscovered elements predict?", "gallium",
+     ("Periodic table", "Dmitri Mendeleev arranged the periodic table and left gaps for undiscovered elements."),
+     ("Dmitri Mendeleev", "Mendeleev predicted the existence of gallium before its discovery.")),
+
+    # --- Literature ---
+    ("easy", "In which country was the author of Pride and Prejudice born?", "England",
+     ("Pride and Prejudice", "Pride and Prejudice was written by Jane Austen."),
+     ("Jane Austen", "Jane Austen was born in Hampshire, England.")),
+    ("medium", "What was the profession of the father of the author who wrote War and Peace?", "Russian nobleman",
+     ("War and Peace", "War and Peace was written by Leo Tolstoy."),
+     ("Leo Tolstoy", "Tolstoy was born into a family of Russian nobility; his father was a Russian nobleman.")),
+    ("medium", "Which city is the setting of the famous play by the author buried in Stratford-upon-Avon?", "Verona",
+     ("Stratford-upon-Avon", "William Shakespeare is buried in Stratford-upon-Avon."),
+     ("Romeo and Juliet", "Shakespeare's Romeo and Juliet is set in the city of Verona.")),
+    ("hard", "What pen name did the author of Adventures of Huckleberry Finn use?", "Mark Twain",
+     ("Adventures of Huckleberry Finn", "Adventures of Huckleberry Finn was written by Samuel Clemens."),
+     ("Samuel Clemens", "Samuel Clemens wrote under the pen name Mark Twain.")),
+    ("easy", "Which language did the author of Don Quixote write in?", "Spanish",
+     ("Don Quixote", "Don Quixote was written by Miguel de Cervantes."),
+     ("Miguel de Cervantes", "Cervantes wrote his works in Spanish.")),
+    ("medium", "What award did the author of One Hundred Years of Solitude receive in 1982?", "Nobel Prize in Literature",
+     ("One Hundred Years of Solitude", "One Hundred Years of Solitude was written by Gabriel Garcia Marquez."),
+     ("Gabriel Garcia Marquez", "He received the Nobel Prize in Literature in 1982.")),
+    ("hard", "Which university did the author of The Lord of the Rings hold a professorship at besides writing fiction?", "Oxford University",
+     ("The Lord of the Rings", "The Lord of the Rings was written by J. R. R. Tolkien."),
+     ("J. R. R. Tolkien", "Tolkien was a professor of English at Oxford University.")),
+
+    # --- Music ---
+    ("easy", "What instrument was the composer of the Moonlight Sonata best known for playing?", "piano",
+     ("Moonlight Sonata", "The Moonlight Sonata was composed by Ludwig van Beethoven."),
+     ("Ludwig van Beethoven", "Beethoven was a renowned pianist and composer.")),
+    ("medium", "In which city was the composer of The Magic Flute born?", "Salzburg",
+     ("The Magic Flute", "The Magic Flute was composed by Wolfgang Amadeus Mozart."),
+     ("Wolfgang Amadeus Mozart", "Mozart was born in Salzburg, Austria.")),
+    ("medium", "What nationality was the composer who wrote the ballet Swan Lake?", "Russian",
+     ("Swan Lake", "Swan Lake was composed by Pyotr Ilyich Tchaikovsky."),
+     ("Pyotr Ilyich Tchaikovsky", "Tchaikovsky was a Russian composer.")),
+    ("hard", "Which band did the songwriter of Imagine belong to before going solo?", "The Beatles",
+     ("Imagine (song)", "The song Imagine was written by John Lennon."),
+     ("John Lennon", "John Lennon was a member of The Beatles before his solo career.")),
+    ("easy", "What genre is the artist known as the King of Pop most associated with?", "pop",
+     ("King of Pop", "Michael Jackson is known as the King of Pop."),
+     ("Michael Jackson", "Michael Jackson was a singer central to the pop genre.")),
+
+    # --- Film & TV ---
+    ("medium", "Which studio released the film directed by the maker of Jurassic Park in 1993?", "Universal Pictures",
+     ("Jurassic Park", "Jurassic Park (1993) was directed by Steven Spielberg."),
+     ("Universal Pictures", "Jurassic Park was released by Universal Pictures.")),
+    ("easy", "In which country was the director of the film Parasite born?", "South Korea",
+     ("Parasite (film)", "Parasite was directed by Bong Joon-ho."),
+     ("Bong Joon-ho", "Bong Joon-ho is a South Korean film director.")),
+    ("hard", "Which novel was the basis for the film directed by the maker of The Godfather in 1972?", "The Godfather (novel)",
+     ("The Godfather (film)", "The Godfather (1972) was directed by Francis Ford Coppola."),
+     ("The Godfather (novel)", "The film was based on the novel The Godfather by Mario Puzo.")),
+    ("medium", "What is the highest-grossing film by the director who also made Titanic?", "Avatar",
+     ("Titanic (film)", "Titanic was directed by James Cameron."),
+     ("James Cameron", "Cameron's Avatar is among the highest-grossing films of all time.")),
+
+    # --- Sports ---
+    ("easy", "Which country does the football club Barcelona play its home league in?", "Spain",
+     ("FC Barcelona", "FC Barcelona competes in La Liga."),
+     ("La Liga", "La Liga is the top professional football league in Spain.")),
+    ("medium", "In which sport did the athlete with the most Olympic gold medals compete?", "swimming",
+     ("Most Olympic golds", "Michael Phelps holds the record for the most Olympic gold medals."),
+     ("Michael Phelps", "Michael Phelps competed in swimming.")),
+    ("hard", "What is the capital of the home country of the tennis player nicknamed Rafa?", "Madrid",
+     ("Rafa", "Rafael Nadal, nicknamed Rafa, is a tennis player from Spain."),
+     ("Spain", "The capital of Spain is Madrid.")),
+    ("easy", "Which city hosts the marathon that the runner of the first sub-2-hour marathon attempt is from?", "Eldoret",
+     ("Sub-2-hour marathon", "Eliud Kipchoge attempted the first sub-2-hour marathon."),
+     ("Eliud Kipchoge", "Kipchoge trains near Eldoret, Kenya.")),
+
+    # --- History & Politics ---
+    ("medium", "Which empire was ruled by the leader who was defeated at the Battle of Waterloo?", "French Empire",
+     ("Battle of Waterloo", "Napoleon Bonaparte was defeated at the Battle of Waterloo in 1815."),
+     ("Napoleon Bonaparte", "Napoleon ruled the First French Empire.")),
+    ("hard", "Which document was signed in the year the first president of the United States was inaugurated?", "United States Bill of Rights",
+     ("First US president", "George Washington was inaugurated as the first US president in 1789."),
+     ("US Bill of Rights", "The Bill of Rights was proposed to the states in 1789.")),
+    ("easy", "On which continent did the civil rights leader who gave the I Have a Dream speech live?", "North America",
+     ("I Have a Dream", "The I Have a Dream speech was delivered by Martin Luther King Jr."),
+     ("Martin Luther King Jr.", "King lived in the United States, in North America.")),
+    ("medium", "Which wall fell in the year the leader of perestroika was in power?", "Berlin Wall",
+     ("Perestroika", "Perestroika was led by Mikhail Gorbachev in the late 1980s."),
+     ("Berlin Wall", "The Berlin Wall fell in 1989, while Gorbachev was in power.")),
+    ("hard", "Which sea did the ancient civilization that built the pyramids of Giza border?", "Mediterranean Sea",
+     ("Pyramids of Giza", "The pyramids of Giza were built by the ancient Egyptians."),
+     ("Ancient Egypt", "Ancient Egypt bordered the Mediterranean Sea to the north.")),
+
+    # --- Technology & Companies ---
+    ("easy", "In which US state is the headquarters of the company that makes the iPhone?", "California",
+     ("iPhone", "The iPhone is made by Apple Inc."),
+     ("Apple Inc.", "Apple's headquarters is in Cupertino, California.")),
+    ("medium", "Which programming language was created by the company whose search engine is Google?", "Go",
+     ("Google", "Google is a search engine developed by the company Google LLC."),
+     ("Go (language)", "The Go programming language was created at Google.")),
+    ("hard", "What was the first product sold by the founder who started the company in a garage in Albuquerque?", "Altair BASIC",
+     ("Microsoft founding", "Microsoft was founded by Bill Gates and Paul Allen, originally in Albuquerque."),
+     ("Altair BASIC", "Microsoft's first product was Altair BASIC, an interpreter for the Altair 8800.")),
+    ("medium", "Which social network was founded by the person who later acquired it being run from Harvard?", "Facebook",
+     ("Harvard dorm startup", "Facebook was started by Mark Zuckerberg from a Harvard dormitory."),
+     ("Mark Zuckerberg", "Zuckerberg co-founded and runs Facebook.")),
+    ("easy", "What kind of vehicle is the main product of the company led by the CEO also behind SpaceX?", "electric car",
+     ("SpaceX CEO", "Elon Musk is the CEO of SpaceX and also leads Tesla."),
+     ("Tesla, Inc.", "Tesla's main products are electric cars.")),
+
+    # --- Mixed / harder multi-hop ---
+    ("hard", "Which river flows through the city that hosts the headquarters of the United Nations?", "East River",
+     ("United Nations HQ", "The United Nations headquarters is located in New York City."),
+     ("New York City", "New York City is bordered by the East River.")),
+    ("medium", "What is the national language of the country that gifted the Statue of Liberty to the US?", "French",
+     ("Statue of Liberty", "The Statue of Liberty was a gift from France to the United States."),
+     ("France", "The national language of France is French.")),
+    ("hard", "Which mountain is the highest point of the country whose capital is Quito?", "Chimborazo",
+     ("Quito", "Quito is the capital of Ecuador."),
+     ("Ecuador", "The highest mountain in Ecuador is Chimborazo.")),
+    ("medium", "What is the largest island of the country whose capital is Wellington?", "South Island",
+     ("Wellington", "Wellington is the capital of New Zealand."),
+     ("New Zealand", "New Zealand's largest island by area is the South Island.")),
+    ("easy", "Which body of water does the canal in the country whose capital is Panama City connect to the Pacific?", "Atlantic Ocean",
+     ("Panama City", "Panama City is the capital of Panama, home to the Panama Canal."),
+     ("Panama Canal", "The Panama Canal connects the Atlantic Ocean to the Pacific Ocean.")),
+    ("hard", "Which ancient wonder was located in the city that shares its name with the library of antiquity in Egypt?", "Lighthouse of Alexandria",
+     ("Library of antiquity", "The Library of Alexandria was located in Alexandria, Egypt."),
+     ("Lighthouse of Alexandria", "The Lighthouse of Alexandria stood in the city of Alexandria.")),
+    ("medium", "What is the primary religion historically associated with the country that built the Angkor Wat temple?", "Hinduism",
+     ("Angkor Wat", "Angkor Wat was built in the Khmer Empire, in present-day Cambodia."),
+     ("Angkor Wat religion", "Angkor Wat was originally constructed as a Hindu temple.")),
+    ("easy", "On which river is the dam located in the country whose capital is Cairo?", "Nile",
+     ("Cairo", "Cairo is the capital of Egypt."),
+     ("Aswan Dam", "The Aswan Dam in Egypt is built on the Nile river.")),
+]
+
+
+def main() -> None:
+    examples = []
+    for i, (difficulty, question, gold, c1, c2) in enumerate(ROWS, start=1):
+        examples.append({
+            "qid": f"tq{i}",
+            "difficulty": difficulty,
+            "question": question,
+            "gold_answer": gold,
+            "context": [
+                {"title": c1[0], "text": c1[1]},
+                {"title": c2[0], "text": c2[1]},
+            ],
+        })
+    out = Path(__file__).resolve().parents[1] / "data" / "test_set.json"
+    out.write_text(json.dumps(examples, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Wrote {len(examples)} examples -> {out}")
+
+
+if __name__ == "__main__":
+    main()

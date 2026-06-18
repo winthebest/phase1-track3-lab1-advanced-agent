@@ -1,0 +1,930 @@
+[
+  {
+    "qid": "tq1",
+    "difficulty": "easy",
+    "question": "What is the capital of the country where the Eiffel Tower is located?",
+    "gold_answer": "Paris",
+    "context": [
+      {
+        "title": "Eiffel Tower",
+        "text": "The Eiffel Tower is a wrought-iron tower located in France."
+      },
+      {
+        "title": "France",
+        "text": "The capital of France is Paris."
+      }
+    ]
+  },
+  {
+    "qid": "tq2",
+    "difficulty": "medium",
+    "question": "Which river flows through the capital of the country where the Colosseum stands?",
+    "gold_answer": "Tiber",
+    "context": [
+      {
+        "title": "Colosseum",
+        "text": "The Colosseum is an ancient amphitheatre in Rome, the capital of Italy."
+      },
+      {
+        "title": "Rome",
+        "text": "Rome is crossed by the Tiber river."
+      }
+    ]
+  },
+  {
+    "qid": "tq3",
+    "difficulty": "medium",
+    "question": "Which ocean borders the country whose capital is Canberra?",
+    "gold_answer": "Pacific Ocean",
+    "context": [
+      {
+        "title": "Canberra",
+        "text": "Canberra is the capital city of Australia."
+      },
+      {
+        "title": "Australia",
+        "text": "Australia is bordered to the east by the Pacific Ocean."
+      }
+    ]
+  },
+  {
+    "qid": "tq4",
+    "difficulty": "hard",
+    "question": "Which desert covers most of the country whose capital is Ulaanbaatar?",
+    "gold_answer": "Gobi Desert",
+    "context": [
+      {
+        "title": "Ulaanbaatar",
+        "text": "Ulaanbaatar is the capital of Mongolia."
+      },
+      {
+        "title": "Mongolia",
+        "text": "Much of southern Mongolia is covered by the Gobi Desert."
+      }
+    ]
+  },
+  {
+    "qid": "tq5",
+    "difficulty": "medium",
+    "question": "What is the longest river in the continent where the Sahara is located?",
+    "gold_answer": "Nile",
+    "context": [
+      {
+        "title": "Sahara",
+        "text": "The Sahara is a desert located on the continent of Africa."
+      },
+      {
+        "title": "Africa",
+        "text": "The Nile is the longest river in Africa."
+      }
+    ]
+  },
+  {
+    "qid": "tq6",
+    "difficulty": "easy",
+    "question": "What is the official currency of the country where Mount Fuji is located?",
+    "gold_answer": "Japanese yen",
+    "context": [
+      {
+        "title": "Mount Fuji",
+        "text": "Mount Fuji is the highest mountain in Japan."
+      },
+      {
+        "title": "Japan",
+        "text": "The official currency of Japan is the Japanese yen."
+      }
+    ]
+  },
+  {
+    "qid": "tq7",
+    "difficulty": "hard",
+    "question": "Which strait separates the continent containing Spain from the continent containing Morocco?",
+    "gold_answer": "Strait of Gibraltar",
+    "context": [
+      {
+        "title": "Spain",
+        "text": "Spain is a country on the continent of Europe."
+      },
+      {
+        "title": "Strait of Gibraltar",
+        "text": "The Strait of Gibraltar separates Europe from Africa, where Morocco lies."
+      }
+    ]
+  },
+  {
+    "qid": "tq8",
+    "difficulty": "medium",
+    "question": "Which lake is the source of the river that flows through the capital of Uganda?",
+    "gold_answer": "Lake Victoria",
+    "context": [
+      {
+        "title": "Kampala",
+        "text": "Kampala is the capital of Uganda, near the shores of Lake Victoria."
+      },
+      {
+        "title": "Nile",
+        "text": "The White Nile begins at Lake Victoria."
+      }
+    ]
+  },
+  {
+    "qid": "tq9",
+    "difficulty": "easy",
+    "question": "On which continent is the country whose capital is Nairobi?",
+    "gold_answer": "Africa",
+    "context": [
+      {
+        "title": "Nairobi",
+        "text": "Nairobi is the capital of Kenya."
+      },
+      {
+        "title": "Kenya",
+        "text": "Kenya is a country located in Africa."
+      }
+    ]
+  },
+  {
+    "qid": "tq10",
+    "difficulty": "hard",
+    "question": "Which mountain range forms the border of the country whose capital is Santiago?",
+    "gold_answer": "Andes",
+    "context": [
+      {
+        "title": "Santiago",
+        "text": "Santiago is the capital of Chile."
+      },
+      {
+        "title": "Chile",
+        "text": "Chile's eastern border runs along the Andes mountain range."
+      }
+    ]
+  },
+  {
+    "qid": "tq11",
+    "difficulty": "easy",
+    "question": "In which country was the scientist who developed the theory of general relativity born?",
+    "gold_answer": "Germany",
+    "context": [
+      {
+        "title": "General relativity",
+        "text": "General relativity was developed by Albert Einstein."
+      },
+      {
+        "title": "Albert Einstein",
+        "text": "Albert Einstein was born in Ulm, Germany."
+      }
+    ]
+  },
+  {
+    "qid": "tq12",
+    "difficulty": "medium",
+    "question": "What prize did the scientist who discovered radium win twice?",
+    "gold_answer": "Nobel Prize",
+    "context": [
+      {
+        "title": "Radium",
+        "text": "Radium was discovered by Marie Curie."
+      },
+      {
+        "title": "Marie Curie",
+        "text": "Marie Curie won the Nobel Prize twice, in Physics and Chemistry."
+      }
+    ]
+  },
+  {
+    "qid": "tq13",
+    "difficulty": "medium",
+    "question": "What nationality was the inventor of the telephone that Bell Labs is named after?",
+    "gold_answer": "Scottish",
+    "context": [
+      {
+        "title": "Bell Labs",
+        "text": "Bell Labs is named after Alexander Graham Bell."
+      },
+      {
+        "title": "Alexander Graham Bell",
+        "text": "Alexander Graham Bell was a Scottish-born inventor."
+      }
+    ]
+  },
+  {
+    "qid": "tq14",
+    "difficulty": "hard",
+    "question": "Which university employed the physicist who formulated the uncertainty principle?",
+    "gold_answer": "University of Leipzig",
+    "context": [
+      {
+        "title": "Uncertainty principle",
+        "text": "The uncertainty principle was formulated by Werner Heisenberg."
+      },
+      {
+        "title": "Werner Heisenberg",
+        "text": "Heisenberg became a professor at the University of Leipzig in 1927."
+      }
+    ]
+  },
+  {
+    "qid": "tq15",
+    "difficulty": "easy",
+    "question": "What field did the person who proposed the theory of evolution by natural selection work in?",
+    "gold_answer": "biology",
+    "context": [
+      {
+        "title": "Theory of evolution",
+        "text": "Evolution by natural selection was proposed by Charles Darwin."
+      },
+      {
+        "title": "Charles Darwin",
+        "text": "Charles Darwin was a naturalist who worked in the field of biology."
+      }
+    ]
+  },
+  {
+    "qid": "tq16",
+    "difficulty": "medium",
+    "question": "What gas did the chemist who is called the father of modern chemistry help identify in combustion?",
+    "gold_answer": "oxygen",
+    "context": [
+      {
+        "title": "Father of modern chemistry",
+        "text": "Antoine Lavoisier is called the father of modern chemistry."
+      },
+      {
+        "title": "Antoine Lavoisier",
+        "text": "Lavoisier identified the role of oxygen in combustion."
+      }
+    ]
+  },
+  {
+    "qid": "tq17",
+    "difficulty": "hard",
+    "question": "Which programming concept is named after the mathematician who designed the first algorithm for a machine?",
+    "gold_answer": "Ada (language)",
+    "context": [
+      {
+        "title": "First algorithm",
+        "text": "Ada Lovelace is credited with writing the first algorithm for a machine."
+      },
+      {
+        "title": "Ada Lovelace",
+        "text": "The Ada programming language is named in her honour."
+      }
+    ]
+  },
+  {
+    "qid": "tq18",
+    "difficulty": "medium",
+    "question": "What disease did the scientist who created the first polio vaccine target?",
+    "gold_answer": "polio",
+    "context": [
+      {
+        "title": "First polio vaccine",
+        "text": "The first polio vaccine was created by Jonas Salk."
+      },
+      {
+        "title": "Jonas Salk",
+        "text": "Jonas Salk developed a vaccine to prevent polio."
+      }
+    ]
+  },
+  {
+    "qid": "tq19",
+    "difficulty": "easy",
+    "question": "What planet did the astronomer who discovered four large moons of Jupiter observe?",
+    "gold_answer": "Jupiter",
+    "context": [
+      {
+        "title": "Galilean moons",
+        "text": "The four large moons of Jupiter were discovered by Galileo Galilei."
+      },
+      {
+        "title": "Galileo Galilei",
+        "text": "Galileo observed the planet Jupiter through his telescope."
+      }
+    ]
+  },
+  {
+    "qid": "tq20",
+    "difficulty": "hard",
+    "question": "Which element did the chemist whose periodic table left gaps for undiscovered elements predict?",
+    "gold_answer": "gallium",
+    "context": [
+      {
+        "title": "Periodic table",
+        "text": "Dmitri Mendeleev arranged the periodic table and left gaps for undiscovered elements."
+      },
+      {
+        "title": "Dmitri Mendeleev",
+        "text": "Mendeleev predicted the existence of gallium before its discovery."
+      }
+    ]
+  },
+  {
+    "qid": "tq21",
+    "difficulty": "easy",
+    "question": "In which country was the author of Pride and Prejudice born?",
+    "gold_answer": "England",
+    "context": [
+      {
+        "title": "Pride and Prejudice",
+        "text": "Pride and Prejudice was written by Jane Austen."
+      },
+      {
+        "title": "Jane Austen",
+        "text": "Jane Austen was born in Hampshire, England."
+      }
+    ]
+  },
+  {
+    "qid": "tq22",
+    "difficulty": "medium",
+    "question": "What was the profession of the father of the author who wrote War and Peace?",
+    "gold_answer": "Russian nobleman",
+    "context": [
+      {
+        "title": "War and Peace",
+        "text": "War and Peace was written by Leo Tolstoy."
+      },
+      {
+        "title": "Leo Tolstoy",
+        "text": "Tolstoy was born into a family of Russian nobility; his father was a Russian nobleman."
+      }
+    ]
+  },
+  {
+    "qid": "tq23",
+    "difficulty": "medium",
+    "question": "Which city is the setting of the famous play by the author buried in Stratford-upon-Avon?",
+    "gold_answer": "Verona",
+    "context": [
+      {
+        "title": "Stratford-upon-Avon",
+        "text": "William Shakespeare is buried in Stratford-upon-Avon."
+      },
+      {
+        "title": "Romeo and Juliet",
+        "text": "Shakespeare's Romeo and Juliet is set in the city of Verona."
+      }
+    ]
+  },
+  {
+    "qid": "tq24",
+    "difficulty": "hard",
+    "question": "What pen name did the author of Adventures of Huckleberry Finn use?",
+    "gold_answer": "Mark Twain",
+    "context": [
+      {
+        "title": "Adventures of Huckleberry Finn",
+        "text": "Adventures of Huckleberry Finn was written by Samuel Clemens."
+      },
+      {
+        "title": "Samuel Clemens",
+        "text": "Samuel Clemens wrote under the pen name Mark Twain."
+      }
+    ]
+  },
+  {
+    "qid": "tq25",
+    "difficulty": "easy",
+    "question": "Which language did the author of Don Quixote write in?",
+    "gold_answer": "Spanish",
+    "context": [
+      {
+        "title": "Don Quixote",
+        "text": "Don Quixote was written by Miguel de Cervantes."
+      },
+      {
+        "title": "Miguel de Cervantes",
+        "text": "Cervantes wrote his works in Spanish."
+      }
+    ]
+  },
+  {
+    "qid": "tq26",
+    "difficulty": "medium",
+    "question": "What award did the author of One Hundred Years of Solitude receive in 1982?",
+    "gold_answer": "Nobel Prize in Literature",
+    "context": [
+      {
+        "title": "One Hundred Years of Solitude",
+        "text": "One Hundred Years of Solitude was written by Gabriel Garcia Marquez."
+      },
+      {
+        "title": "Gabriel Garcia Marquez",
+        "text": "He received the Nobel Prize in Literature in 1982."
+      }
+    ]
+  },
+  {
+    "qid": "tq27",
+    "difficulty": "hard",
+    "question": "Which university did the author of The Lord of the Rings hold a professorship at besides writing fiction?",
+    "gold_answer": "Oxford University",
+    "context": [
+      {
+        "title": "The Lord of the Rings",
+        "text": "The Lord of the Rings was written by J. R. R. Tolkien."
+      },
+      {
+        "title": "J. R. R. Tolkien",
+        "text": "Tolkien was a professor of English at Oxford University."
+      }
+    ]
+  },
+  {
+    "qid": "tq28",
+    "difficulty": "easy",
+    "question": "What instrument was the composer of the Moonlight Sonata best known for playing?",
+    "gold_answer": "piano",
+    "context": [
+      {
+        "title": "Moonlight Sonata",
+        "text": "The Moonlight Sonata was composed by Ludwig van Beethoven."
+      },
+      {
+        "title": "Ludwig van Beethoven",
+        "text": "Beethoven was a renowned pianist and composer."
+      }
+    ]
+  },
+  {
+    "qid": "tq29",
+    "difficulty": "medium",
+    "question": "In which city was the composer of The Magic Flute born?",
+    "gold_answer": "Salzburg",
+    "context": [
+      {
+        "title": "The Magic Flute",
+        "text": "The Magic Flute was composed by Wolfgang Amadeus Mozart."
+      },
+      {
+        "title": "Wolfgang Amadeus Mozart",
+        "text": "Mozart was born in Salzburg, Austria."
+      }
+    ]
+  },
+  {
+    "qid": "tq30",
+    "difficulty": "medium",
+    "question": "What nationality was the composer who wrote the ballet Swan Lake?",
+    "gold_answer": "Russian",
+    "context": [
+      {
+        "title": "Swan Lake",
+        "text": "Swan Lake was composed by Pyotr Ilyich Tchaikovsky."
+      },
+      {
+        "title": "Pyotr Ilyich Tchaikovsky",
+        "text": "Tchaikovsky was a Russian composer."
+      }
+    ]
+  },
+  {
+    "qid": "tq31",
+    "difficulty": "hard",
+    "question": "Which band did the songwriter of Imagine belong to before going solo?",
+    "gold_answer": "The Beatles",
+    "context": [
+      {
+        "title": "Imagine (song)",
+        "text": "The song Imagine was written by John Lennon."
+      },
+      {
+        "title": "John Lennon",
+        "text": "John Lennon was a member of The Beatles before his solo career."
+      }
+    ]
+  },
+  {
+    "qid": "tq32",
+    "difficulty": "easy",
+    "question": "What genre is the artist known as the King of Pop most associated with?",
+    "gold_answer": "pop",
+    "context": [
+      {
+        "title": "King of Pop",
+        "text": "Michael Jackson is known as the King of Pop."
+      },
+      {
+        "title": "Michael Jackson",
+        "text": "Michael Jackson was a singer central to the pop genre."
+      }
+    ]
+  },
+  {
+    "qid": "tq33",
+    "difficulty": "medium",
+    "question": "Which studio released the film directed by the maker of Jurassic Park in 1993?",
+    "gold_answer": "Universal Pictures",
+    "context": [
+      {
+        "title": "Jurassic Park",
+        "text": "Jurassic Park (1993) was directed by Steven Spielberg."
+      },
+      {
+        "title": "Universal Pictures",
+        "text": "Jurassic Park was released by Universal Pictures."
+      }
+    ]
+  },
+  {
+    "qid": "tq34",
+    "difficulty": "easy",
+    "question": "In which country was the director of the film Parasite born?",
+    "gold_answer": "South Korea",
+    "context": [
+      {
+        "title": "Parasite (film)",
+        "text": "Parasite was directed by Bong Joon-ho."
+      },
+      {
+        "title": "Bong Joon-ho",
+        "text": "Bong Joon-ho is a South Korean film director."
+      }
+    ]
+  },
+  {
+    "qid": "tq35",
+    "difficulty": "hard",
+    "question": "Which novel was the basis for the film directed by the maker of The Godfather in 1972?",
+    "gold_answer": "The Godfather (novel)",
+    "context": [
+      {
+        "title": "The Godfather (film)",
+        "text": "The Godfather (1972) was directed by Francis Ford Coppola."
+      },
+      {
+        "title": "The Godfather (novel)",
+        "text": "The film was based on the novel The Godfather by Mario Puzo."
+      }
+    ]
+  },
+  {
+    "qid": "tq36",
+    "difficulty": "medium",
+    "question": "What is the highest-grossing film by the director who also made Titanic?",
+    "gold_answer": "Avatar",
+    "context": [
+      {
+        "title": "Titanic (film)",
+        "text": "Titanic was directed by James Cameron."
+      },
+      {
+        "title": "James Cameron",
+        "text": "Cameron's Avatar is among the highest-grossing films of all time."
+      }
+    ]
+  },
+  {
+    "qid": "tq37",
+    "difficulty": "easy",
+    "question": "Which country does the football club Barcelona play its home league in?",
+    "gold_answer": "Spain",
+    "context": [
+      {
+        "title": "FC Barcelona",
+        "text": "FC Barcelona competes in La Liga."
+      },
+      {
+        "title": "La Liga",
+        "text": "La Liga is the top professional football league in Spain."
+      }
+    ]
+  },
+  {
+    "qid": "tq38",
+    "difficulty": "medium",
+    "question": "In which sport did the athlete with the most Olympic gold medals compete?",
+    "gold_answer": "swimming",
+    "context": [
+      {
+        "title": "Most Olympic golds",
+        "text": "Michael Phelps holds the record for the most Olympic gold medals."
+      },
+      {
+        "title": "Michael Phelps",
+        "text": "Michael Phelps competed in swimming."
+      }
+    ]
+  },
+  {
+    "qid": "tq39",
+    "difficulty": "hard",
+    "question": "What is the capital of the home country of the tennis player nicknamed Rafa?",
+    "gold_answer": "Madrid",
+    "context": [
+      {
+        "title": "Rafa",
+        "text": "Rafael Nadal, nicknamed Rafa, is a tennis player from Spain."
+      },
+      {
+        "title": "Spain",
+        "text": "The capital of Spain is Madrid."
+      }
+    ]
+  },
+  {
+    "qid": "tq40",
+    "difficulty": "easy",
+    "question": "Which city hosts the marathon that the runner of the first sub-2-hour marathon attempt is from?",
+    "gold_answer": "Eldoret",
+    "context": [
+      {
+        "title": "Sub-2-hour marathon",
+        "text": "Eliud Kipchoge attempted the first sub-2-hour marathon."
+      },
+      {
+        "title": "Eliud Kipchoge",
+        "text": "Kipchoge trains near Eldoret, Kenya."
+      }
+    ]
+  },
+  {
+    "qid": "tq41",
+    "difficulty": "medium",
+    "question": "Which empire was ruled by the leader who was defeated at the Battle of Waterloo?",
+    "gold_answer": "French Empire",
+    "context": [
+      {
+        "title": "Battle of Waterloo",
+        "text": "Napoleon Bonaparte was defeated at the Battle of Waterloo in 1815."
+      },
+      {
+        "title": "Napoleon Bonaparte",
+        "text": "Napoleon ruled the First French Empire."
+      }
+    ]
+  },
+  {
+    "qid": "tq42",
+    "difficulty": "hard",
+    "question": "Which document was signed in the year the first president of the United States was inaugurated?",
+    "gold_answer": "United States Bill of Rights",
+    "context": [
+      {
+        "title": "First US president",
+        "text": "George Washington was inaugurated as the first US president in 1789."
+      },
+      {
+        "title": "US Bill of Rights",
+        "text": "The Bill of Rights was proposed to the states in 1789."
+      }
+    ]
+  },
+  {
+    "qid": "tq43",
+    "difficulty": "easy",
+    "question": "On which continent did the civil rights leader who gave the I Have a Dream speech live?",
+    "gold_answer": "North America",
+    "context": [
+      {
+        "title": "I Have a Dream",
+        "text": "The I Have a Dream speech was delivered by Martin Luther King Jr."
+      },
+      {
+        "title": "Martin Luther King Jr.",
+        "text": "King lived in the United States, in North America."
+      }
+    ]
+  },
+  {
+    "qid": "tq44",
+    "difficulty": "medium",
+    "question": "Which wall fell in the year the leader of perestroika was in power?",
+    "gold_answer": "Berlin Wall",
+    "context": [
+      {
+        "title": "Perestroika",
+        "text": "Perestroika was led by Mikhail Gorbachev in the late 1980s."
+      },
+      {
+        "title": "Berlin Wall",
+        "text": "The Berlin Wall fell in 1989, while Gorbachev was in power."
+      }
+    ]
+  },
+  {
+    "qid": "tq45",
+    "difficulty": "hard",
+    "question": "Which sea did the ancient civilization that built the pyramids of Giza border?",
+    "gold_answer": "Mediterranean Sea",
+    "context": [
+      {
+        "title": "Pyramids of Giza",
+        "text": "The pyramids of Giza were built by the ancient Egyptians."
+      },
+      {
+        "title": "Ancient Egypt",
+        "text": "Ancient Egypt bordered the Mediterranean Sea to the north."
+      }
+    ]
+  },
+  {
+    "qid": "tq46",
+    "difficulty": "easy",
+    "question": "In which US state is the headquarters of the company that makes the iPhone?",
+    "gold_answer": "California",
+    "context": [
+      {
+        "title": "iPhone",
+        "text": "The iPhone is made by Apple Inc."
+      },
+      {
+        "title": "Apple Inc.",
+        "text": "Apple's headquarters is in Cupertino, California."
+      }
+    ]
+  },
+  {
+    "qid": "tq47",
+    "difficulty": "medium",
+    "question": "Which programming language was created by the company whose search engine is Google?",
+    "gold_answer": "Go",
+    "context": [
+      {
+        "title": "Google",
+        "text": "Google is a search engine developed by the company Google LLC."
+      },
+      {
+        "title": "Go (language)",
+        "text": "The Go programming language was created at Google."
+      }
+    ]
+  },
+  {
+    "qid": "tq48",
+    "difficulty": "hard",
+    "question": "What was the first product sold by the founder who started the company in a garage in Albuquerque?",
+    "gold_answer": "Altair BASIC",
+    "context": [
+      {
+        "title": "Microsoft founding",
+        "text": "Microsoft was founded by Bill Gates and Paul Allen, originally in Albuquerque."
+      },
+      {
+        "title": "Altair BASIC",
+        "text": "Microsoft's first product was Altair BASIC, an interpreter for the Altair 8800."
+      }
+    ]
+  },
+  {
+    "qid": "tq49",
+    "difficulty": "medium",
+    "question": "Which social network was founded by the person who later acquired it being run from Harvard?",
+    "gold_answer": "Facebook",
+    "context": [
+      {
+        "title": "Harvard dorm startup",
+        "text": "Facebook was started by Mark Zuckerberg from a Harvard dormitory."
+      },
+      {
+        "title": "Mark Zuckerberg",
+        "text": "Zuckerberg co-founded and runs Facebook."
+      }
+    ]
+  },
+  {
+    "qid": "tq50",
+    "difficulty": "easy",
+    "question": "What kind of vehicle is the main product of the company led by the CEO also behind SpaceX?",
+    "gold_answer": "electric car",
+    "context": [
+      {
+        "title": "SpaceX CEO",
+        "text": "Elon Musk is the CEO of SpaceX and also leads Tesla."
+      },
+      {
+        "title": "Tesla, Inc.",
+        "text": "Tesla's main products are electric cars."
+      }
+    ]
+  },
+  {
+    "qid": "tq51",
+    "difficulty": "hard",
+    "question": "Which river flows through the city that hosts the headquarters of the United Nations?",
+    "gold_answer": "East River",
+    "context": [
+      {
+        "title": "United Nations HQ",
+        "text": "The United Nations headquarters is located in New York City."
+      },
+      {
+        "title": "New York City",
+        "text": "New York City is bordered by the East River."
+      }
+    ]
+  },
+  {
+    "qid": "tq52",
+    "difficulty": "medium",
+    "question": "What is the national language of the country that gifted the Statue of Liberty to the US?",
+    "gold_answer": "French",
+    "context": [
+      {
+        "title": "Statue of Liberty",
+        "text": "The Statue of Liberty was a gift from France to the United States."
+      },
+      {
+        "title": "France",
+        "text": "The national language of France is French."
+      }
+    ]
+  },
+  {
+    "qid": "tq53",
+    "difficulty": "hard",
+    "question": "Which mountain is the highest point of the country whose capital is Quito?",
+    "gold_answer": "Chimborazo",
+    "context": [
+      {
+        "title": "Quito",
+        "text": "Quito is the capital of Ecuador."
+      },
+      {
+        "title": "Ecuador",
+        "text": "The highest mountain in Ecuador is Chimborazo."
+      }
+    ]
+  },
+  {
+    "qid": "tq54",
+    "difficulty": "medium",
+    "question": "What is the largest island of the country whose capital is Wellington?",
+    "gold_answer": "South Island",
+    "context": [
+      {
+        "title": "Wellington",
+        "text": "Wellington is the capital of New Zealand."
+      },
+      {
+        "title": "New Zealand",
+        "text": "New Zealand's largest island by area is the South Island."
+      }
+    ]
+  },
+  {
+    "qid": "tq55",
+    "difficulty": "easy",
+    "question": "Which body of water does the canal in the country whose capital is Panama City connect to the Pacific?",
+    "gold_answer": "Atlantic Ocean",
+    "context": [
+      {
+        "title": "Panama City",
+        "text": "Panama City is the capital of Panama, home to the Panama Canal."
+      },
+      {
+        "title": "Panama Canal",
+        "text": "The Panama Canal connects the Atlantic Ocean to the Pacific Ocean."
+      }
+    ]
+  },
+  {
+    "qid": "tq56",
+    "difficulty": "hard",
+    "question": "Which ancient wonder was located in the city that shares its name with the library of antiquity in Egypt?",
+    "gold_answer": "Lighthouse of Alexandria",
+    "context": [
+      {
+        "title": "Library of antiquity",
+        "text": "The Library of Alexandria was located in Alexandria, Egypt."
+      },
+      {
+        "title": "Lighthouse of Alexandria",
+        "text": "The Lighthouse of Alexandria stood in the city of Alexandria."
+      }
+    ]
+  },
+  {
+    "qid": "tq57",
+    "difficulty": "medium",
+    "question": "What is the primary religion historically associated with the country that built the Angkor Wat temple?",
+    "gold_answer": "Hinduism",
+    "context": [
+      {
+        "title": "Angkor Wat",
+        "text": "Angkor Wat was built in the Khmer Empire, in present-day Cambodia."
+      },
+      {
+        "title": "Angkor Wat religion",
+        "text": "Angkor Wat was originally constructed as a Hindu temple."
+      }
+    ]
+  },
+  {
+    "qid": "tq58",
+    "difficulty": "easy",
+    "question": "On which river is the dam located in the country whose capital is Cairo?",
+    "gold_answer": "Nile",
+    "context": [
+      {
+        "title": "Cairo",
+        "text": "Cairo is the capital of Egypt."
+      },
+      {
+        "title": "Aswan Dam",
+        "text": "The Aswan Dam in Egypt is built on the Nile river."
+      }
+    ]
+  }
+]
